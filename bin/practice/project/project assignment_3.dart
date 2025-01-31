@@ -147,6 +147,7 @@ void main() {
       }
     } catch (e) {
       print("ERROR : ${e.toString()}");
+      print("everything will be fine");
     }
   }
 }

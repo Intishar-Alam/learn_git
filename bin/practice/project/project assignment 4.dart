@@ -33,8 +33,16 @@ class Inventory{
     products[product.id]=product;
     print("Product added");
   }
-  GetProductbyid( int id){
+  Product GetProductbyid( int id){
     return products.values.firstWhere((product)=> product.id == id);
+  }
+  Displayproduct(int id){
+    Product? product= GetProductbyid(id);
+    if(product == null){
+      print("No product found");
+    }else{
+      print("Name: ${product.name},Id: ${product.id},Quantity: ${product.quantity},Price: ${product.price},");
+    }
   }
 
 
@@ -87,10 +95,25 @@ void main(){
           print("$id product is added");
 
         }else if(choice ==2){
+          stdout.write("Enter Product ID:");
+          int id=int.parse(stdin.readLineSync()!);
+
+
+          stdout.write("Enter New Quantity:");
+          int quantity=int.parse(stdin.readLineSync()!);
+
+          inventory.Updateproductquantity(id, quantity);
+          print("$id quantity updated");
+
 
         }else if(choice ==3){
 
         }else if(choice ==4){
+          stdout.write("Enter Product ID:");
+          int id=int.parse(stdin.readLineSync()!);
+
+          inventory.Displayproduct(id);
+
 
         }else if(choice ==5){
 
